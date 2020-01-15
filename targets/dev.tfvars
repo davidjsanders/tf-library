@@ -24,9 +24,7 @@ vm = {
     admin-password = "s1mple$Testing"
     public-key     = ""
     password-auth  = false
-    network-interfaces = [
-        "/subscriptions/54dd1e30-b249-43a1-a46e-9a1c40dff2cc/resourceGroups/RG-ENGINEERING/providers/Microsoft.Network/networkInterfaces/test-nic"
-    ]
+    network-interfaces = []
 }
 vm-os-disk = {
     disk-name           = "osd-disk"
