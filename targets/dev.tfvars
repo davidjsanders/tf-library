@@ -1,4 +1,4 @@
-location = "East US"
+location        = "East US"
 rg-name         = "RG-DJS-TESTING"
 public-key-file = "~/.ssh/azure_pk.pub"
 tags            = {
