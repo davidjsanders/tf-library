@@ -14,13 +14,7 @@ endif
 
 taint:
 	@start="`date`"; \
-	docker run \
-		--rm -it \
-		--volume $(WORKDIR):/data \
-		--volume $(WORKDIR)/targets:/secrets \
-		--volume $(HOME)/.ssh/:/ssh/ \
-		$(IMAGE_NAME) \
-			taint $(EXTRA_ARGS); \
+	terraform taint $(EXTRA_ARGS); \
 	echo ; \
 	echo "Started taint at  : $$start"; \
 	echo "Finished taint at : `date`"; \
@@ -28,13 +22,7 @@ taint:
 
 init:
 	@start="`date`"; \
-	docker run \
-		--rm -it \
-		--volume $(WORKDIR):/data \
-		--volume $(WORKDIR)/targets:/secrets \
-		--volume $(HOME)/.ssh/:/ssh/ \
-		$(IMAGE_NAME) \
-			init -backend-config=/secrets/beconf.tfvars ; \
+	terraform init -backend-config=targets/beconf.tfvars ; \
 	echo ; \
 	echo "Started init at  : $$start"; \
 	echo "Finished init at : `date`"; \
@@ -42,17 +30,11 @@ init:
 
 plan:
 	@start="`date`"; \
-	docker run \
-	--rm -it \
-	--volume $(WORKDIR):/data \
-	--volume $(WORKDIR)/targets:/secrets \
-	--volume $(HOME)/.ssh/:/ssh/ \
-	$(IMAGE_NAME) \
-		plan \
+	terraform plan \
 		-input=false \
-		-out=/secrets/$(ENVIRONMENT)-run \
-		-var-file=/secrets/$(ENVIRONMENT).tfvars \
-		-var-file=/secrets/credentials.secret\
+		-out=targets/$(ENVIRONMENT)-run \
+		-var-file=targets/$(ENVIRONMENT).tfvars \
+		-var-file=targets/credentials.secret\
 		${EXTRA_ARGS}; \
 	echo ; \
 	echo "Started plan at  : $$start"; \
@@ -61,15 +43,9 @@ plan:
 
 apply:
 	@start="`date`"; \
-	docker run \
-	--rm -it \
-	--volume $(WORKDIR):/data \
-	--volume $(WORKDIR)/targets:/secrets \
-	--volume $(HOME)/.ssh/:/ssh/ \
-	$(IMAGE_NAME) \
-		apply \
+	terraform apply \
 		-input=false \
-		/secrets/$(ENVIRONMENT)-run; \
+		targets/$(ENVIRONMENT)-run; \
 	echo ; \
 	echo "Started apply at  : $$start"; \
 	echo "Finished apply at : `date`"; \
@@ -93,17 +69,11 @@ graph:
 
 destroy:
 	@start="`date`"; \
-	docker run \
-	--rm -it \
-	--volume $(WORKDIR):/data \
-	--volume $(WORKDIR)/targets:/secrets \
-	--volume $(HOME)/.ssh/:/ssh/ \
-	$(IMAGE_NAME) \
-		destroy \
+	terraform destroy \
 		-force \
 		-input=false \
-		-var-file=/secrets/$(ENVIRONMENT).tfvars \
-		-var-file=/secrets/credentials.secret; \
+		-var-file=targets/$(ENVIRONMENT).tfvars \
+		-var-file=targets/credentials.secret; \
 	echo ; \
 	echo "Started destroy at  : $$start"; \
 	echo "Finished destroy at : `date`"; \

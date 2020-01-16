@@ -1,43 +1,19 @@
 location = "East US"
-network = {
-    rg-name = "RG-ENGINEERING"
-    vnet-name = "TEST-VNET"
-    subnet-name = "TEST-SUBNET"
-}
-tags = {
+rg-name         = "RG-DJS-TESTING"
+public-key-file = "~/.ssh/azure_pk.pub"
+tags            = {
     billing-code   = "TEST"
     business-group = "TEST"
     description    = "TEST"
     environment    = "TEST"
     target         = "TEST"
 }
-vm = {
-    rg-name        = "RG-ENGINEERING"
-    avset-id       = ""
-    vm-count       = 1
-    name-prefix    = "test-vm"
-    size           = "Standard_DS1_v2"
-    boot-diags     = false
-    boot-sa-uri    = ""
-    custom-data    = ""
-    admin-user     = "azadmin"
-    admin-password = "s1mple$Testing"
-    public-key     = ""
-    password-auth  = false
-    network-interfaces = []
+vnet            = {
+    rg-name   = "RG-VNETS"
+    vnet-name = "VNET-DJS-DOCKER-EUS"
 }
-vm-os-disk = {
-    disk-name           = "osd-disk"
-    caching             = "ReadWrite"
-    create-option       = "FromImage"
-    disk-type           = "Premium_LRS"
-    delete-on-terminate = true
-}
-vm-data-disk = {
-    disk-count          = 0
-    disk-prefix         = "data-disk"
-    caching             = "ReadWrite"
-    create-option       = "FromImage"
-    disk-type           = "Premium_LRS"
-    delete-on-terminate = true
+subnet          = {
+    rg-name     = "RG-VNETS"
+    vnet-name   = "VNET-DJS-DOCKER-EUS"
+    subnet-name = "SNET-DJS-DOCKER-MGMT-EUS"
 }

@@ -1,22 +1,18 @@
-resource "azurerm_virtual_machine" "vm-workers" {
+resource "azurerm_virtual_machine" "vm" {
   count = var.vm.vm-count
-
-  depends_on = [
-  ]
 
   resource_group_name              = var.vm.rg-name
   vm_size                          = var.vm.size
   availability_set_id              = var.vm.avset-id
   delete_os_disk_on_termination    = var.vm-os-disk.delete-on-terminate
   delete_data_disks_on_termination = var.vm-data-disk.delete-on-terminate
-  location                         = var.location
+  location                         = var.vm.location
 
   name = upper(
     format(
-      "%s-%01d%s",
-      var.vm.name-prefix,
-      count.index + 1,
-      local.l-random,
+      "VM-%s-%01d",
+      upper(var.vm.name-prefix),
+      count.index + 1
     ),
   )
 
@@ -28,12 +24,7 @@ resource "azurerm_virtual_machine" "vm-workers" {
   }
 
   storage_image_reference {
-    id = format(
-      "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Compute/images/%s",
-      var.vm-image.subscription-id,
-      var.vm-image.rg-name,
-      var.vm-image.id
-    )
+    id = var.vm.storage-image-reference
   }
 
   storage_os_disk {
@@ -46,10 +37,9 @@ resource "azurerm_virtual_machine" "vm-workers" {
   os_profile {
     computer_name = lower(
       format(
-        "%s-%01d%s",
-        var.vm.name-prefix,
-        count.index + 1,
-        local.l-random
+        "vm-%s-%01d",
+        lower(var.vm.name-prefix),
+        count.index + 1
       ),
     )
     admin_username = var.vm.admin-user
@@ -58,11 +48,11 @@ resource "azurerm_virtual_machine" "vm-workers" {
   }
 
   os_profile_linux_config {
-    disable_password_authentication = var.vm.password-auth
+    disable_password_authentication = var.vm.disable-password-auth
 
     ssh_keys {
       path     = "/home/${var.vm.admin-user}/.ssh/authorized_keys"
-      key_data = var.public-key
+      key_data = var.vm.public-key
     }
   }
 
