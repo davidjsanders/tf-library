@@ -6,7 +6,7 @@ module "test-nic" {
     location   = module.test-resource-group.location
     nic-count  = 1
     nic-name   = "djs-test"
-    pip-id     = ""
+    pip-id     = module.test-pip.ids[0]
     rg-name    = module.test-resource-group.name
     subnet-id  = data.azurerm_subnet.subnet.id
   }

@@ -9,7 +9,7 @@ module "test-vm" {
     boot-diags              = true
     boot-sa-uri             = module.test-storage-account.primary_blob_endpoint
     custom-data             = ""
-    disable-password-auth   = false
+    disable-password-auth   = true
     location                = module.test-resource-group.location
     name-prefix             = "test-vm"
     network-interfaces      = module.test-nic.ids
