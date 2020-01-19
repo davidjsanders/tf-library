@@ -16,7 +16,7 @@ module "subnet" {
 
   subnet = {
     address_prefix = var.subnet.address-prefix
-    rg-name        = var.subnet.rg-name
+    rg-name        = module.test-resource-group.name
     vnet-name      = module.vnet.name
     subnet-name    = var.subnet.subnet-name
     nsg-id         = module.test-nsg.id
