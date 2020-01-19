@@ -28,6 +28,7 @@ tags                 = {
     target         = "TEST"
 }
 vnet                 = {
-    rg-name   = "RG-VNETS"
-    vnet-name = "VNET-DJS-DOCKER-EUS"
+    address-space = ["192.168.0.0/24"]
+    rg-name       = "RG-VNETS"
+    vnet-name     = "VNET-DJS-DOCKER-EUS"
 }

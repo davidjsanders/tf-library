@@ -55,10 +55,11 @@ variable "tags" {
   )
 }
 variable "vnet" {
-    type = object(
-        {
-            rg-name   = string
-            vnet-name = string
-        }
-    )
+  type = object(
+      {
+        address-space = list(string)
+        rg-name       = string
+        vnet-name     = string
+      }
+  )
 }
