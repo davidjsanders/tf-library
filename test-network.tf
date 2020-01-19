@@ -1,24 +1,14 @@
-module "vnet" {
-  source = "./azure/lib/virtual-network/"
+module "three-tier-network" {
+  source = "./azure/3-tier-network/"
 
-  vnet = {
-    address-space = var.vnet.address-space
-    location      = module.test-resource-group.location
-    rg-name       = module.test-resource-group.name
-    vnet-name     = "DJS-TESTING"
-    nsg-id        = module.test-nsg.id
+  network = {
+    address-space   = ["192.168.1.0/24"]
+    location        = module.test-resource-group.location
+    nsg-ids         = [module.test-nsg.id, "", ""]
+    rg-name         = module.test-resource-group.name
+    subnet-prefixes = ["192.168.1.0/27", "192.168.1.32/27", "192.168.1.64/27"]
+    subnet-names    = ["DJS-1", "DJS-2", "DJS-3"]
+    vnet-name       = "DJS"
   }
-  tags = var.tags
-}
-
-module "subnet" {
-  source = "./azure/lib/subnet/"
-
-  subnet = {
-    address_prefix = var.subnet.address-prefix
-    rg-name        = module.test-resource-group.name
-    vnet-name      = module.vnet.name
-    subnet-name    = var.subnet.subnet-name
-    nsg-id         = module.test-nsg.id
-  }
+  tags    = var.tags
 }

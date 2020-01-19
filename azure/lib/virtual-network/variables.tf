@@ -5,7 +5,6 @@ variable "vnet" {
         location      = string
         rg-name       = string
         vnet-name     = string
-        nsg-id        = string
       }
   )
 }

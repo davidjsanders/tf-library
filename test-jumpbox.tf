@@ -12,7 +12,7 @@ module "jumpbox" {
     public-key              = file(var.jumpbox.public-key-file)
     rg-name                 = module.test-resource-group.name
     storage-account-uri     = data.azurerm_storage_account.storage-account.primary_blob_endpoint
-    subnet-id               = module.subnet.id
+    subnet-id               = module.three-tier-network.subnet-ids[0]
     storage-image-reference = format(
       "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Compute/images/%s",
       var.azure-secrets.subscription-id,
