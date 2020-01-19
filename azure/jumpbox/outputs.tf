@@ -1,5 +1,5 @@
 output "private-ip" {
-  value = module.jumpbox-nic.*.ips[0]
+  value = module.jumpbox-nic.ips[0]
 }
 
 output "vm-password" {
@@ -7,5 +7,5 @@ output "vm-password" {
 }
 
 output "public-ip" {
-  value = module.jumpbox-pip.*.ip-addresses[0]
+  value = module.jumpbox-pip.ip-addresses[0]
 }

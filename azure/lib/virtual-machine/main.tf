@@ -10,7 +10,7 @@ resource "azurerm_virtual_machine" "vm" {
 
   name = upper(
     format(
-      "VM-%s-%01d",
+      "VM-%s-%02d",
       upper(var.vm.name-prefix),
       count.index + 1
     ),
@@ -30,8 +30,9 @@ resource "azurerm_virtual_machine" "vm" {
   storage_os_disk {
     name              = upper(
       format(
-        "OSD-%s",
-        var.vm-os-disk.disk-name
+        "OSD-%s-%02d",
+        var.vm-os-disk.disk-name,
+        count.index + 1
       )
     )
     caching           = var.vm-os-disk.caching

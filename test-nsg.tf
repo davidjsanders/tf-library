@@ -2,7 +2,7 @@ module "test-nsg" {
   source = "./azure/lib/nsg/"
   nsg = {
     location = module.test-resource-group.location
-    nsg-name = module.test-resource-group.name
+    nsg-name = var.jumpbox.jumpbox-name
     rg-name  = module.test-resource-group.name
   }
   tags = var.tags

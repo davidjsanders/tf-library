@@ -6,6 +6,8 @@ variable "jumpbox" {
           location                = string
           machine-size            = string
           nsg-id                  = string
+          nsg-name                = string
+          nsg-rule-number         = string
           public-key              = string
           rg-name                 = string
           storage-account-uri     = string
