@@ -1,12 +1,16 @@
 location             = "East US"
 rg-name              = "RG-DJS-TESTING"
 public-key-file      = "~/.ssh/azure-pk.pub"
-storage-account-name = "dasandervms"
-storage-account-rg   = "RG-STORAGE-ACCOUNTS"
+storage-account = {
+    rg-name   = "RG-STORAGE-ACCOUNTS"
+    sa-name   = "dasandervms"
+}
 subnet               = {
-    rg-name     = "RG-VNETS"
-    vnet-name   = "VNET-DJS-DOCKER-EUS"
-    subnet-name = "SNET-DJS-DOCKER-MGMT-EUS"
+    address-prefix = "10.60.1.0/25"
+    rg-name        = "RG-VNETS"
+    vnet-name      = "VNET-DJS-DOCKER-EUS"
+    subnet-name    = "SNET-DJS-TESTING"
+    nsg-id         = "tbd"
 }
 jumpbox              = {
     admin-user      = "jumper"

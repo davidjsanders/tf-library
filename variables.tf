@@ -1,8 +1,6 @@
 variable "location" {}
 variable "rg-name" {}
 variable "public-key-file" {}
-variable "storage-account-name" {}
-variable "storage-account-rg" {}
 variable "azure-secrets" {
     type = object(
         {
@@ -26,12 +24,22 @@ variable "jumpbox" {
       }
   )
 }
+variable "storage-account" {
+    type = object(
+        {
+            rg-name = string
+            sa-name = string
+        }
+    )
+}
 variable "subnet" {
     type = object(
         {
-            rg-name     = string
-            vnet-name   = string
-            subnet-name = string
+            address-prefix = string
+            rg-name        = string
+            vnet-name      = string
+            subnet-name    = string
+            nsg-id         = string
         }
     )
 }
