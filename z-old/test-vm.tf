@@ -1,5 +1,5 @@
 module "test-vm" {
-  source         = "./az-lib-virtual-machine/"
+  source         = "./virtual-machine/"
 
   tags           = var.tags
   vm             = {

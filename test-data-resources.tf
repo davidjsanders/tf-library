@@ -8,3 +8,8 @@ data "azurerm_subnet" "subnet" {
   virtual_network_name = var.subnet.vnet-name
   resource_group_name  = var.subnet.rg-name
 }
+
+data "azurerm_storage_account" "storage-account" {
+  name                 = var.storage-account-name
+  resource_group_name  = var.storage-account-rg
+}

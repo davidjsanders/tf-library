@@ -1,8 +1,22 @@
 module "jumpbox" {
-  source    = "./az-jumpbox/"
-  rg        = {
-    rg-name  = var.rg-name
-    location = var.location
+  source          = "./azure/jumpbox/"
+
+  jumpbox         = {
+    admin-user              = var.jumpbox.admin-user
+    jumpbox-name            = var.jumpbox.jumpbox-name
+    location                = module.test-resource-group.location
+    machine-size            = var.jumpbox.machine-size
+    nsg-id                  = module.test-nsg.id
+    public-key              = file(var.jumpbox.public-key-file)
+    rg-name                 = module.test-resource-group.name
+    storage-account-uri     = data.azurerm_storage_account.storage-account.primary_blob_endpoint
+    subnet-id               = data.azurerm_subnet.subnet.id
+    storage-image-reference = format(
+      "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Compute/images/%s",
+      var.azure-secrets.subscription-id,
+      var.jumpbox.image-rg,
+      var.jumpbox.image-name
+    )
   }
-  tags      = var.tags
+  tags            = var.tags
 }

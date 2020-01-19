@@ -1,5 +1,5 @@
 module "test-nsg" {
-  source = "./az-lib-nsg/"
+  source = "./nsg/"
   nsg = {
     location = module.test-resource-group.location
     nsg-name = "djs-test"

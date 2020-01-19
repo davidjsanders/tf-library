@@ -1,5 +1,5 @@
 module "test-pip" {
-  source = "./az-lib-public-ip/"
+  source = "./public-ip/"
   pip = {
     allocation-method = "Dynamic"
     domain-name-label = ""

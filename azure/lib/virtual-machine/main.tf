@@ -28,7 +28,12 @@ resource "azurerm_virtual_machine" "vm" {
   }
 
   storage_os_disk {
-    name              = var.vm-os-disk.disk-name
+    name              = upper(
+      format(
+        "OSD-%s",
+        var.vm-os-disk.disk-name
+      )
+    )
     caching           = var.vm-os-disk.caching
     create_option     = var.vm-os-disk.create-option
     managed_disk_type = var.vm-os-disk.disk-type
@@ -37,7 +42,7 @@ resource "azurerm_virtual_machine" "vm" {
   os_profile {
     computer_name = lower(
       format(
-        "vm-%s-%01d",
+        "%s-%01d",
         lower(var.vm.name-prefix),
         count.index + 1
       ),

@@ -1,5 +1,5 @@
 module "test-nic" {
-  source = "./az-lib-network-interface/"
+  source = "./network-interface/"
   nic = {
     allocation = "Dynamic"
     ip-address = ""

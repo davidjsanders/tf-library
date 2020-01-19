@@ -3,10 +3,12 @@ resource "azurerm_public_ip" "pip" {
 
   allocation_method = var.pip.allocation-method
   location          = var.pip.location
-  name = format(
-    "%s-%02d",
-    var.pip.pip-name,
-    count.index + 1
+  name = upper(
+    format(
+      "PIP-%s-%02d",
+      var.pip.pip-name,
+      count.index + 1
+    )
   )
   resource_group_name = var.pip.rg-name
   sku                 = var.pip.sku

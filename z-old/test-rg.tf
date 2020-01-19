@@ -1,5 +1,5 @@
 module "test-resource-group" {
-  source    = "./az-lib-resource-group/"
+  source    = "./resource-group/"
   rg        = {
     rg-name  = var.rg-name
     location = var.location
