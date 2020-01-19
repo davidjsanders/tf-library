@@ -9,3 +9,7 @@ output "ip-addresses" {
 output "fqdn" {
     value = azurerm_public_ip.pip.*.fqdn
 }
+
+output "name" {
+    value = azurerm_public_ip.pip.*.name
+}
