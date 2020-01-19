@@ -10,13 +10,5 @@ variable "storage-account" {
   )
 }
 variable "tags" {
-  type = object(
-      {
-          billing-code   = string
-          business-group = string
-          description    = string
-          environment    = string
-          target         = string
-      }
-  )
+  type = object({})
 }

@@ -1,5 +1,5 @@
 module "test-storage-account" {
-  source          = "./lib-storage-account/"
+  source          = "./az-lib-storage-account/"
   storage-account = {
     account-tier     = "Standard"
     location         = module.test-resource-group.location

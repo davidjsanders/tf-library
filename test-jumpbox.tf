@@ -1,5 +1,5 @@
-module "test-resource-group" {
-  source    = "./az-lib-resource-group/"
+module "jumpbox" {
+  source    = "./az-jumpbox/"
   rg        = {
     rg-name  = var.rg-name
     location = var.location
