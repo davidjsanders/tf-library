@@ -30,7 +30,7 @@ resource "azurerm_virtual_machine" "vm" {
   storage_os_disk {
     name              = upper(
       format(
-        "OSD-%s-%02d",
+        "DSK-%s-OSD-%02d",
         var.vm-os-disk.disk-name,
         count.index + 1
       )
@@ -44,10 +44,10 @@ resource "azurerm_virtual_machine" "vm" {
     for_each = [for i in range(0, var.vm-data-disk.disk-count):{
         name  = upper(
           format(
-            "DSK-%s-%02d-%02d",
+            "DSK-%s-%02d-DATA-%02d",
             var.vm-data-disk.disk-prefix,
             count.index + 1,
-            i
+            i + 1
           )
         )
         caching           = var.vm-data-disk.caching
