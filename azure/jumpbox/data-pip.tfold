@@ -1,4 +1,0 @@
-data "azurerm_public_ip" "post-alloc-pip" {
-  name                = module.jumpbox-pip.name[0]
-  resource_group_name = var.jumpbox.rg-name
-}

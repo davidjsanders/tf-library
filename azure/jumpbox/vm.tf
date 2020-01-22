@@ -30,8 +30,9 @@ module "jumpbox-vm" {
     disk-count          = 0
     disk-prefix         = var.jumpbox.jumpbox-name
     caching             = "ReadWrite"
-    create-option       = "FromImage"
+    create-option       = "Empty"
     disk-type           = "Premium_LRS"
+    disk-size-gb        = 50
     delete-on-terminate = true
   }
 }

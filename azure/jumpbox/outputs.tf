@@ -9,3 +9,7 @@ output "private-ip" {
 output "jumpbox-password" {
   value = random_password.password.result
 }
+
+output "pip-name" {
+  value = module.jumpbox-pip.name
+}

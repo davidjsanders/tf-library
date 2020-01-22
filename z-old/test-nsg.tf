@@ -1,9 +1,9 @@
 module "test-nsg" {
   source = "./nsg/"
   nsg = {
-    location = module.test-resource-group.location
+    location = module.k8s-resource-group.location
     nsg-name = "djs-test"
-    rg-name  = module.test-resource-group.name
+    rg-name  = module.k8s-resource-group.name
   }
   tags = var.tags
 }

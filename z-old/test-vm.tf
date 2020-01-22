@@ -10,11 +10,11 @@ module "test-vm" {
     boot-sa-uri             = module.test-storage-account.primary_blob_endpoint
     custom-data             = ""
     disable-password-auth   = true
-    location                = module.test-resource-group.location
+    location                = module.k8s-resource-group.location
     name-prefix             = "test-vm"
     network-interfaces      = module.test-nic.ids
     public-key              = var.azure-secrets.public-key
-    rg-name                 = module.test-resource-group.name
+    rg-name                 = module.k8s-resource-group.name
     size                    = "Standard_DS1_v2"
     storage-image-reference = format(
       "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Compute/images/%s",

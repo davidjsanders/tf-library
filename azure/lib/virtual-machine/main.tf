@@ -40,6 +40,33 @@ resource "azurerm_virtual_machine" "vm" {
     managed_disk_type = var.vm-os-disk.disk-type
   }
 
+  dynamic "storage_data_disk" {
+    for_each = [for i in range(0, var.vm-data-disk.disk-count):{
+        name  = upper(
+          format(
+            "DSK-%s-%02d-%02d",
+            var.vm-data-disk.disk-prefix,
+            count.index + 1,
+            i
+          )
+        )
+        caching           = var.vm-data-disk.caching
+        create_option     = var.vm-data-disk.create-option
+        managed_disk_type = var.vm-data-disk.disk-type
+        lun               = i
+        disk_size_gb      = var.vm-data-disk.disk-size-gb
+      }]
+
+    content {
+      name              = storage_data_disk.value.name
+      caching           = storage_data_disk.value.caching
+      create_option     = storage_data_disk.value.create_option
+      managed_disk_type = storage_data_disk.value.managed_disk_type
+      lun               = storage_data_disk.value.lun
+      disk_size_gb      = storage_data_disk.value.disk_size_gb
+    }
+  }
+
   os_profile {
     computer_name = lower(
       format(

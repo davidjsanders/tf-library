@@ -1,4 +1,4 @@
-module "test-resource-group" {
+module "k8s-resource-group" {
   source    = "./azure/lib/resource-group/"
   rg        = {
     rg-name  = var.rg-name

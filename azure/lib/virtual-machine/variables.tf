@@ -41,6 +41,7 @@ variable "vm-data-disk" {
             caching             = string
             create-option       = string
             disk-type           = string
+            disk-size-gb        = number
             delete-on-terminate = bool
         }
     )
