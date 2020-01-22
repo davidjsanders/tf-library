@@ -3,7 +3,7 @@ resource "azurerm_virtual_network" "vnet" {
   location            = var.vnet.location
   name                = upper(
     format(
-      "VNET-%s",
+      "VNT-%s",
       var.vnet.vnet-name
     ),
   )

@@ -5,7 +5,7 @@ resource "azurerm_subnet" "subnet" {
   }
 
   name = format(
-    "SNET-%s",
+    "SNT-%s",
     var.subnet.subnet-name
   )
   resource_group_name       = var.subnet.rg-name
