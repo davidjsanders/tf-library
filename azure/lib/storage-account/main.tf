@@ -4,7 +4,11 @@ resource "azurerm_storage_account" "sa" {
   name                     = lower(
     format(
       "%s%s"
-      substr(var.storage-account.sa-name,0,20),
+      substr(
+        var.storage-account.sa-name,
+        0,
+        24 - length(var.storage-account.randomizer)
+      ),
       var.storage-account.randomizer
     )
   )
