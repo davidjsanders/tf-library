@@ -1,7 +1,7 @@
 resource "azurerm_subnet" "subnet" {
   address_prefix = var.subnet.address_prefix
   lifecycle {
-    ignore_changes = [route_table_id, network_security_group_id, ip_configurations]
+    ignore_changes = [route_table_id,network_security_group_id]
   }
 
   name = upper(
