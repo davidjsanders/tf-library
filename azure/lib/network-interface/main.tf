@@ -1,7 +1,7 @@
 resource "azurerm_network_interface" "nic" {
-  lifecycle {
-    ignore_changes = [ip_configuration]
-  }
+  # lifecycle {
+  #   ignore_changes = [ip_configuration]
+  # }
 
   count    = var.nic.nic-count
   location = var.nic.location
