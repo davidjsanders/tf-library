@@ -1,5 +1,5 @@
 module "jumpbox-server" {
-  source = "../server-linux/"
+  source = "../linux-server/"
 
   linux-server = {
     admin-user              = var.jumpbox.admin-user

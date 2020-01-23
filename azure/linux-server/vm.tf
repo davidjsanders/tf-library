@@ -21,7 +21,7 @@ module "linux-server-vm" {
     vm-count                = 1
   }
   vm-os-disk     = {
-    disk-name           = var.linux-server.linux-server-name
+    disk-name           = var.linux-server.server-name
     caching             = "ReadWrite"
     create-option       = "FromImage"
     disk-type           = "Premium_LRS"
@@ -29,7 +29,7 @@ module "linux-server-vm" {
   }
   vm-data-disk   = {
     disk-count          = 0
-    disk-prefix         = var.linux-server.linux-server-name
+    disk-prefix         = var.linux-server.server-name
     caching             = "ReadWrite"
     create-option       = "Empty"
     disk-type           = "Premium_LRS"
