@@ -11,11 +11,11 @@ output "linux-server-password" {
 }
 
 output "nic-ids" {
-  value = modue.linux-server-nic.ids
+  value = module.linux-server-nic.ids
 }
 
 output "nic-ips" {
-  value = modue.linux-server-nic.ips
+  value = module.linux-server-nic.ips
 }
 
 output "vm-ids" {

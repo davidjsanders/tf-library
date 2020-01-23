@@ -2,7 +2,7 @@ variable "linux-server" {
   type = object(
       {
           admin-user              = string
-          jumpbox-name            = string
+          server-name             = string
           location                = string
           machine-size            = string
           nsg-id                  = string

@@ -19,5 +19,5 @@ output "vm-id" {
 }
 
 output "vm-name" {
-  value = module.jumpbox-vm.vm-names[0]
+  value = module.jumpbox-server.vm-names[0]
 }

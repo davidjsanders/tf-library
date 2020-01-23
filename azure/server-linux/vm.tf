@@ -11,7 +11,7 @@ module "linux-server-vm" {
     custom-data             = ""
     disable-password-auth   = true
     location                = var.linux-server.location
-    name-prefix             = var.linux-server.linux-server-name
+    name-prefix             = var.linux-server.server-name
     network-interfaces      = module.linux-server-nic.ids
     public-key              = var.linux-server.public-key
     randomizer              = var.linux-server.randomizer
