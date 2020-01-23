@@ -3,7 +3,7 @@ module "jumpbox-server" {
 
   linux-server = {
     admin-user              = var.jumpbox.admin-user
-    jumpbox-name            = var.jumpbox.jumpbox-name
+    server-name             = var.jumpbox.jumpbox-name
     location                = var.jumpbox.location
     machine-size            = var.jumpbox.machine-size
     nsg-id                  = var.jumpbox.nsg-id
