@@ -3,7 +3,7 @@ resource "azurerm_storage_account" "sa" {
   account_replication_type = var.storage-account.replication-type
   name                     = lower(
     format(
-      "%s%s"
+      "%s%s",
       substr(
         var.storage-account.sa-name,
         0,
