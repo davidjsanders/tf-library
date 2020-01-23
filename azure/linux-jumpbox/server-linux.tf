@@ -3,7 +3,6 @@ module "jumpbox-server" {
 
   linux-server = {
     admin-user              = var.jumpbox.admin-user
-    server-name             = var.jumpbox.jumpbox-name
     location                = var.jumpbox.location
     machine-size            = var.jumpbox.machine-size
     nsg-id                  = var.jumpbox.nsg-id
@@ -13,6 +12,8 @@ module "jumpbox-server" {
     public-key              = var.jumpbox.public-key
     randomizer              = var.jumpbox.randomizer
     rg-name                 = var.jumpbox.rg-name
+    server-count            = 1
+    server-name             = var.jumpbox.jumpbox-name
     storage-account-uri     = var.jumpbox.storage-account-uri
     storage-image-reference = var.jumpbox.storage-image-reference
     subnet-id               = var.jumpbox.subnet-id
