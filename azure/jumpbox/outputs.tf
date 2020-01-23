@@ -13,3 +13,7 @@ output "jumpbox-password" {
 output "pip-name" {
   value = module.jumpbox-pip.name
 }
+
+output "vm-id" {
+  value = module.jumpbox-vm.ids[0]
+}
