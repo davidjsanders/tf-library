@@ -1,8 +1,9 @@
 variable "rg" {
   type = object(
       {
-          rg-name  = string
-          location = string
+        randomizer = string
+        rg-name    = string
+        location   = string
       }
   )
 }

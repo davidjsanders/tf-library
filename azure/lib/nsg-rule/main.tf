@@ -5,8 +5,9 @@ resource "azurerm_network_security_rule" "nsg-rule" {
   destination_port_range      = var.nsg-rule.destination-port-range
   name                        = upper(
     format(
-      "NSR-%s",
-      var.nsg-rule.rule-name
+      "NSR-%s%s",
+      var.nsg-rule.rule-name,
+      var.nsg-rule.randomizer
     )
   )
   priority                    = var.nsg-rule.priority

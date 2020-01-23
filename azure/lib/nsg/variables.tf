@@ -1,9 +1,10 @@
 variable "nsg" {
   type = object(
       {
-          location          = string
-          nsg-name          = string
-          rg-name           = string
+          location   = string
+          nsg-name   = string
+          randomizer = string
+          rg-name    = string
       }
   )
 }

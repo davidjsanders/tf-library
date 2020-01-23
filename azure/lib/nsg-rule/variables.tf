@@ -8,6 +8,7 @@ variable "nsg-rule" {
         nsg-name                    = string
         priority                    = string
         protocol                    = string
+        randomizer                  = string
         rg-name                     = string
         rule-name                   = string
         source-port-range           = string

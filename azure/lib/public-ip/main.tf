@@ -5,9 +5,10 @@ resource "azurerm_public_ip" "pip" {
   location          = var.pip.location
   name = upper(
     format(
-      "PIP-%s-%02d",
+      "PIP-%s-%02d%s",
       var.pip.pip-name,
-      count.index + 1
+      count.index + 1,
+      var.pip.randomizer
     )
   )
   resource_group_name = var.pip.rg-name

@@ -7,6 +7,7 @@ variable "nic" {
           nic-count  = number
           nic-name   = string
           pip-id     = string
+          randomizer = string
           rg-name    = string
           subnet-id  = string
       }

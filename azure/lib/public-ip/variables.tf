@@ -7,6 +7,7 @@ variable "pip" {
           location          = string
           pip-count         = number
           pip-name          = string
+          randomizer        = string
           rg-name           = string
           sku               = string
       }

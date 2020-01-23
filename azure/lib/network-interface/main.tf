@@ -7,9 +7,10 @@ resource "azurerm_network_interface" "nic" {
   location = var.nic.location
   name     = upper(
     format(
-      "NIC-%s-%02d",
+      "NIC-%s-%02d%s",
       var.nic.nic-name,
-      count.index + 1
+      count.index + 1,
+      var.nic.randomizer
     )
   )
 
