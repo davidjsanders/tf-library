@@ -6,8 +6,9 @@ resource "azurerm_subnet" "subnet" {
 
   name = upper(
     format(
-      "SNT-%s",
-      var.subnet.subnet-name
+      "SNT-%s%s",
+      var.subnet.subnet-name,
+      var.subnet.randomizer
     )
   )
   resource_group_name       = var.subnet.rg-name

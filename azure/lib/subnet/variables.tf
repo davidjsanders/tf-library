@@ -3,6 +3,7 @@ variable "subnet" {
       {
         address_prefix = string
         subnet-name    = string
+        randomizer     = string
         rg-name        = string
         vnet-name      = string
         nsg-id         = string
