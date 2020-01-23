@@ -3,7 +3,7 @@ module "jumpbox-ssh-rule" {
   nsg-rule = {
     access                      = "Allow"
     direction                   = "Inbound"
-    destination-address-prefix  = module.jumpbox-nic.ips[0]
+    destination-address-prefix  = module.jumpbox-server.nic-ips[0]
     destination-port-range      = "22"
     nsg-name                    = var.jumpbox.nsg-name
     priority                    = var.jumpbox.nsg-rule-number
