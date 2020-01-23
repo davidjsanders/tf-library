@@ -10,10 +10,6 @@ output "linux-server-password" {
   value = random_password.password.result
 }
 
-output "pip-name" {
-  value = module.linux-server-pip.name
-}
-
 output "nic-ids" {
   value = modue.linux-server-nic.ids
 }
@@ -22,10 +18,10 @@ output "nic-ips" {
   value = modue.linux-server-nic.ips
 }
 
-output "vm-id" {
+output "vm-ids" {
   value = module.linux-server-vm.ids
 }
 
-output "vm-name" {
+output "vm-names" {
   value = module.linux-server-vm.names
 }
