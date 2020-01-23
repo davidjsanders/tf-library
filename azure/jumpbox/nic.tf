@@ -7,6 +7,7 @@ module "jumpbox-nic" {
     nic-count  = 1
     nic-name   = var.jumpbox.jumpbox-name
     pip-id     = module.jumpbox-pip.ids[0]
+    randomizer = var.jumpbox.randomizer
     rg-name    = var.jumpbox.rg-name
     subnet-id  = var.jumpbox.subnet-id
   }

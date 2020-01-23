@@ -7,6 +7,7 @@ module "jumpbox-pip" {
     location          = var.jumpbox.location
     pip-count         = 1
     pip-name          = var.jumpbox.jumpbox-name
+    randomizer        = var.jumpbox.randomizer
     rg-name           = var.jumpbox.rg-name
     sku               = "Basic"
   }

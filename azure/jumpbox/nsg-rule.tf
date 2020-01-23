@@ -8,6 +8,7 @@ module "jumpbox-ssh-rule" {
     nsg-name                    = var.jumpbox.nsg-name
     priority                    = var.jumpbox.nsg-rule-number
     protocol                    = "Tcp"
+    randomizer                  = var.jumpbox.randomizer
     source-port-range           = "*"
     source-address-prefix       = "Internet"
     rg-name                     = var.jumpbox.rg-name
