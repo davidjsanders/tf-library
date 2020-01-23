@@ -17,3 +17,7 @@ output "pip-name" {
 output "vm-id" {
   value = module.jumpbox-vm.ids[0]
 }
+
+output "vm-name" {
+  value = module.jumpbox-vm.names[0]
+}

@@ -10,9 +10,10 @@ resource "azurerm_virtual_machine" "vm" {
 
   name = upper(
     format(
-      "VM-%s-%02d",
+      "VM-%s-%02d%s",
       upper(var.vm.name-prefix),
-      count.index + 1
+      count.index + 1,
+      var.vm.randomizer
     ),
   )
 
@@ -30,9 +31,10 @@ resource "azurerm_virtual_machine" "vm" {
   storage_os_disk {
     name              = upper(
       format(
-        "DSK-%s-OSD-%02d",
+        "DSK-%s-OSD-%02d%s",
         var.vm-os-disk.disk-name,
-        count.index + 1
+        count.index + 1,
+        var.vm.randomizer
       )
     )
     caching           = var.vm-os-disk.caching
@@ -44,10 +46,11 @@ resource "azurerm_virtual_machine" "vm" {
     for_each = [for i in range(0, var.vm-data-disk.disk-count):{
         name  = upper(
           format(
-            "DSK-%s-%02d-DATA-%02d",
+            "DSK-%s-%02d-DATA-%02d%s",
             var.vm-data-disk.disk-prefix,
             count.index + 1,
-            i + 1
+            i + 1,
+            var.vm.randomizer
           )
         )
         caching           = var.vm-data-disk.caching
@@ -70,9 +73,10 @@ resource "azurerm_virtual_machine" "vm" {
   os_profile {
     computer_name = lower(
       format(
-        "%s-%01d",
+        "%s-%01d%s",
         lower(var.vm.name-prefix),
-        count.index + 1
+        count.index + 1,
+        var.vm.randomizer
       ),
     )
     admin_username = var.vm.admin-user

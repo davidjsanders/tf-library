@@ -15,6 +15,7 @@ variable "vm" {
             network-interfaces      = list(string)
             disable-password-auth   = bool
             public-key              = string
+            randomizer              = string
             rg-name                 = string
             size                    = string
             storage-image-reference = string

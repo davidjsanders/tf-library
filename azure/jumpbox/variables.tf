@@ -9,6 +9,7 @@ variable "jumpbox" {
           nsg-name                = string
           nsg-rule-number         = string
           public-key              = string
+          randomizer              = string
           rg-name                 = string
           storage-account-uri     = string
           storage-image-reference = string

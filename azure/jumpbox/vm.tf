@@ -14,6 +14,7 @@ module "jumpbox-vm" {
     name-prefix             = var.jumpbox.jumpbox-name
     network-interfaces      = module.jumpbox-nic.ids
     public-key              = var.jumpbox.public-key
+    randomizer              = var.jumpbox.randomizer
     rg-name                 = var.jumpbox.rg-name
     size                    = var.jumpbox.machine-size
     storage-image-reference = var.jumpbox.storage-image-reference
