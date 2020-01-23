@@ -3,6 +3,7 @@ variable "vnet" {
       {
         address-space = list(string)
         location      = string
+        randomizer    = string
         rg-name       = string
         vnet-name     = string
       }

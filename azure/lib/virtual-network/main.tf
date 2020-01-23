@@ -3,8 +3,9 @@ resource "azurerm_virtual_network" "vnet" {
   location            = var.vnet.location
   name                = upper(
     format(
-      "VNT-%s",
-      var.vnet.vnet-name
+      "VNT-%s%s",
+      var.vnet.vnet-name,
+      var.vnet.randomizer
     ),
   )
   resource_group_name = var.vnet.rg-name

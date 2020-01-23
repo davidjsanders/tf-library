@@ -4,6 +4,7 @@ variable "network" {
         address-space   = list(string)
         location        = string
         nsg-ids         = list(string)
+        randomizer      = string
         rg-name         = string
         subnet-prefixes = list(string)
         subnet-names    = list(string)
