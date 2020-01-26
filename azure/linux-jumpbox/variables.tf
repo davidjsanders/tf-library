@@ -2,6 +2,10 @@ variable "jumpbox" {
   type = object(
       {
           admin-user              = string
+          availability-set-id     = string
+          boot-diags              = bool
+          boot-diags-sa-uri       = string
+          custom-data             = string
           jumpbox-name            = string
           location                = string
           machine-size            = string
@@ -11,7 +15,6 @@ variable "jumpbox" {
           public-key              = string
           randomizer              = string
           rg-name                 = string
-          storage-account-uri     = string
           storage-image-reference = string
           subnet-id               = string
       }
