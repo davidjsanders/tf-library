@@ -9,6 +9,7 @@ module "jumpbox-server" {
     custom-data             = var.jumpbox.custom-data
     location                = var.jumpbox.location
     machine-size            = var.jumpbox.machine-size
+    nic-count               = 1
     pip-id                  = module.jumpbox-pip.ids[0]
     public-key              = var.jumpbox.public-key
     randomizer              = var.jumpbox.randomizer
