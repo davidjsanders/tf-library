@@ -4,7 +4,7 @@ module "linux-server-nic" {
     allocation = "Dynamic"
     ip-address = ""
     location   = var.linux-server.location
-    nic-count  = var.linux-server.server-count
+    nic-count  = var.linux-server.nic-count
     nic-name   = var.linux-server.server-name
     pip-id     = var.linux-server.pip-id
     randomizer = var.linux-server.randomizer

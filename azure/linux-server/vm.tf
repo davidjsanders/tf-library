@@ -5,10 +5,10 @@ module "linux-server-vm" {
   vm             = {
     admin-user              = var.linux-server.admin-user
     admin-password          = random_password.password.result
-    avset-id                = ""
-    boot-diags              = true
-    boot-sa-uri             = var.linux-server.storage-account-uri
-    custom-data             = ""
+    avset-id                = var.linux-server.availability-set-id
+    boot-diags              = var.linux-server.boot-diags
+    boot-sa-uri             = var.linux-server.boot-diags-sa-uri
+    custom-data             = var.linux-server.custom-data
     disable-password-auth   = true
     location                = var.linux-server.location
     name-prefix             = var.linux-server.server-name
