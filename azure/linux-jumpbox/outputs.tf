@@ -14,6 +14,10 @@ output "pip-name" {
   value = module.jumpbox-pip.name[0]
 }
 
+output "pip-ip-address" {
+  value = module.jumpbox-pip.ip-addresses[0]
+}
+
 output "vm-id" {
   value = module.jumpbox-server.vm-ids[0]
 }
