@@ -2,7 +2,7 @@ module "jumpbox-pip" {
   source = "../lib/public-ip/"
   pip = {
     allocation-method = "Dynamic"
-    domain-name-label = ""
+    domain-name-label = var.jumpbox.domain-name-label
     ip-version        = "IPv4"
     location          = var.jumpbox.location
     pip-count         = 1

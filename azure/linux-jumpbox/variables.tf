@@ -6,6 +6,7 @@ variable "jumpbox" {
           boot-diags              = bool
           boot-diags-sa-uri       = string
           custom-data             = string
+          domain-name-label       = string
           jumpbox-name            = string
           location                = string
           machine-size            = string
