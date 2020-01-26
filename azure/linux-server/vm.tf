@@ -18,7 +18,7 @@ module "linux-server-vm" {
     rg-name                 = var.linux-server.rg-name
     size                    = var.linux-server.machine-size
     storage-image-reference = var.linux-server.storage-image-reference
-    vm-count                = var.linux-server.server-count
+    vm-count                = 1
   }
   vm-os-disk     = {
     disk-name           = var.linux-server.server-name
