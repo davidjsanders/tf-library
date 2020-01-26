@@ -1,10 +1,6 @@
-output "private-ip" {
-  value = module.jumpbox-server.nic-ips[0]
+output "fqdn" {
+  value = module.jumpbox-pip.fqdn[0]
 }
-
-# output "public-ip" {
-#   value = data.azurerm_public_ip.post-alloc-pip.ip_address
-# }
 
 output "jumpbox-password" {
   value = module.jumpbox-server.linux-server-password
@@ -16,6 +12,10 @@ output "pip-name" {
 
 output "pip-ip-address" {
   value = module.jumpbox-pip.ip-addresses[0]
+}
+
+output "private-ip" {
+  value = module.jumpbox-server.nic-ips[0]
 }
 
 output "vm-id" {
