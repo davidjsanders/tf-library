@@ -8,6 +8,6 @@ resource "azurerm_public_ip" "jumpbox-pip" {
     var.linux-jumpbox.randomizer
   )
   resource_group_name = var.linux-jumpbox.rg-name
-  sku                 = var.linux-jumpbox.pip-sku
+  sku                 = var.linux-jumpbox.network.pip-sku
   tags                = var.tags
 }
