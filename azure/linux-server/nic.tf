@@ -1,5 +1,6 @@
 resource "azurerm_network_interface" "nic" {
   count    = var.linux-server.server-count
+
   location = var.linux-server.location
   name     = upper(
     format(
