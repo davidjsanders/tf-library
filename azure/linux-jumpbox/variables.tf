@@ -26,7 +26,6 @@ variable "linux-jumpbox" {
           public-key              = string
           randomizer              = string
           rg-name                 = string
-          server-count            = number
           server-name             = string
           storage-image-reference = string
       }
