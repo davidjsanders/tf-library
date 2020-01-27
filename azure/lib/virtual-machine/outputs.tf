@@ -4,3 +4,6 @@ output "ids" {
 output "names" {
   value = azurerm_virtual_machine.vm.*.name
 }
+output "rg-names" {
+  value = azurerm_virtual_machine.vm.*.resource_group_name
+}
