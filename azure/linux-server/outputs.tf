@@ -18,14 +18,14 @@ output "nic-ips" {
   value = module.linux-server-nic.ips
 }
 
-output "rg-names" {
-  value = module.linux-server-vm.rg-names
+output "rg-name" {
+  value = module.linux-server-vm.rg-name
 }
 
-output "vm-ids" {
-  value = module.linux-server-vm.ids
+output "vm-id" {
+  value = module.linux-server-vm.id
 }
 
-output "vm-names" {
-  value = module.linux-server-vm.names
+output "vm-name" {
+  value = module.linux-server-vm.name
 }
