@@ -1,8 +1,8 @@
 resource "azurerm_virtual_machine" "vm" {
-  count = var.linux-server.vm-count
+  count = var.linux-server.server-count
 
   resource_group_name              = var.linux-server.rg-name
-  vm_size                          = var.linux-server.size
+  vm_size                          = var.linux-server.machine-size
   availability_set_id              = var.linux-server.availability-set-id
   delete_os_disk_on_termination    = var.linux-server.delete-os-on-done
   delete_data_disks_on_termination = var.linux-server.delete-data-on-done
