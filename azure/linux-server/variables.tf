@@ -22,7 +22,6 @@ variable "linux-server" {
           os-disk-create-option   = string
           os-disk-disk-size-gb    = number
           os-disk-managed-type    = string
-          })
           pip-id                  = string
           public-key              = string
           randomizer              = string
