@@ -13,10 +13,10 @@ module "jumpbox" {
         location                = var.linux-jumpbox.location
         machine-size            = var.linux-jumpbox.machine-size
         network                 = {
-            private-ip-address = var.linux-jumpbox.private-ip-address
-            private-ip-alloc   = var.linux-jumpbox.private-ip-alloc
+            private-ip-address = var.linux-jumpbox.network.private-ip-address
+            private-ip-alloc   = var.linux-jumpbox.network.private-ip-alloc
             public-ip-id       = azurerm_public_ip.jumpbox-pip.id
-            subnet-id          = var.linux-jumpbox.subnet-id
+            subnet-id          = var.linux-jumpbox.network.subnet-id
         }
         os-disk-caching         = var.linux-jumpbox.os-disk-caching
         os-disk-create-option   = var.linux-jumpbox.os-disk-create-option
