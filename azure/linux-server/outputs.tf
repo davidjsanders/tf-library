@@ -19,7 +19,7 @@ output "nic-private-ips" {
 }
 
 output "vm-password" {
-  value = random.random_password.password.result
+  value = random_password.password.result
 }
 
 # output "private-ip" {
