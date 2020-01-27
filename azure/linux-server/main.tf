@@ -32,44 +32,14 @@ resource "azurerm_virtual_machine" "vm" {
     name              = upper(
       format(
         "DSK-%s-%02d%s",
-        var.linux-server.os-disk.disk-name,
+        var.linux-server.server-name,
         count.index + 1,
         var.linux-server.randomizer
       )
     )
-    caching           = var.linux-server.os-disk.caching
-    create_option     = var.linux-server.os-disk.create-option
-    managed_disk_type = var.linux-server.os-disk.disk-type
-  }
-
-  dynamic "storage_data_disk" {
-    for_each = var.linux-server.data-disks
-    iterator = "data-disks"
-
-    content {
-      name              = storage_data_disk.value.disk-name
-      caching           = storage_data_disk.value.caching
-      create_option     = storage_data_disk.value.create-option
-      managed_disk_type = storage_data_disk.value.managed-disk-type
-      lun               = count.index + 1
-      disk_size_gb      = storage_data_disk.value.disk_size_gb
-    }
-    # for_each = [for i in range(0, var.linux-server.disk-count):{
-    #     name  = upper(
-    #       format(
-    #         "DSK-%s-%02d-DATA-%02d%s",
-    #         var.linux-server-data-disk.disk-prefix,
-    #         count.index + 1,
-    #         i + 1,
-    #         var.linux-server.randomizer
-    #       )
-    #     )
-    #     caching           = var.linux-server-data-disk.caching
-    #     create_option     = var.linux-server-data-disk.create-option
-    #     managed_disk_type = var.linux-server-data-disk.disk-type
-    #     lun               = i
-    #     disk_size_gb      = var.linux-server-data-disk.disk-size-gb
-    #   }]
+    caching           = var.linux-server.os-disk-caching
+    create_option     = var.linux-server.os-disk-create-option
+    managed_disk_type = var.linux-server.os-disk-managed-type
   }
 
   os_profile {

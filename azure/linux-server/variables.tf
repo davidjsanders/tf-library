@@ -7,13 +7,6 @@ variable "linux-server" {
           boot-diags              = bool
           boot-diags-sa-uri       = string
           custom-data             = string
-          data-disks              = list(object({
-            caching               = string
-            create-option         = string
-            disk-name             = string
-            disk-size-gb          = number
-            managed-disk-type     = string
-          }))
           delete-os-on-done       = bool
           delete-data-on-done     = bool
           disable-password-auth   = bool
@@ -25,12 +18,10 @@ variable "linux-server" {
             public-ip-id          = string
             subnet-id             = string
           })
-          os-disk                 = object({
-            caching               = string
-            create-option         = string
-            disk-name             = string
-            disk-size-gb          = number
-            managed-disk-type     = string
+          os-disk-caching         = string
+          os-disk-create-option   = string
+          os-disk-disk-size-gb    = number
+          os-disk-managed-type    = string
           })
           pip-id                  = string
           public-key              = string
