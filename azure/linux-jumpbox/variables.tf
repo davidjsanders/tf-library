@@ -1,4 +1,4 @@
-variable "jumpbox" {
+variable "linux-jumpbox" {
   type = object(
       {
           admin-user              = string
@@ -6,18 +6,29 @@ variable "jumpbox" {
           boot-diags              = bool
           boot-diags-sa-uri       = string
           custom-data             = string
-          domain-name-label       = string
-          jumpbox-name            = string
+          delete-os-on-done       = bool
+          delete-data-on-done     = bool
+          disable-password-auth   = bool
           location                = string
           machine-size            = string
-          nsg-id                  = string
-          nsg-name                = string
-          nsg-rule-number         = string
+          network                 = object({
+            pip-alloc             = string
+            pip-domain-name-label = string
+            pip-sku               = string
+            private-ip-address    = string
+            private-ip-alloc      = string
+            subnet-id             = string
+          })
+          os-disk-caching         = string
+          os-disk-create-option   = string
+          os-disk-disk-size-gb    = number
+          os-disk-managed-type    = string
           public-key              = string
           randomizer              = string
           rg-name                 = string
+          server-count            = number
+          server-name             = string
           storage-image-reference = string
-          subnet-id               = string
       }
   )
 }
