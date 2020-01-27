@@ -52,7 +52,7 @@ resource "azurerm_virtual_machine" "vm" {
       ),
     )
     admin_username = var.linux-server.admin-user
-    admin_password = var.linux-server.admin-password
+    admin_password = random.random_password.password.result
     custom_data    = var.linux-server.custom-data
   }
 
