@@ -6,7 +6,6 @@ module "jumpbox" {
         boot-diags              = var.linux-jumpbox.boot-diags
         boot-diags-sa-uri       = var.linux-jumpbox.boot-diags-sa-uri
         custom-data             = var.linux-jumpbox.custom-data
-        data-disks              = var.linux-jumpbox.data-disks
         delete-os-on-done       = var.linux-jumpbox.delete-os-on-done
         delete-data-on-done     = var.linux-jumpbox.delete-data-on-done
         disable-password-auth   = var.linux-jumpbox.disable-password-auth
