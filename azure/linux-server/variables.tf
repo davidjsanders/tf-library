@@ -2,7 +2,6 @@ variable "linux-server" {
   type = object(
       {
           admin-user              = string
-          admin-password          = string
           availability-set-id     = string
           boot-diags              = bool
           boot-diags-sa-uri       = string
@@ -29,7 +28,6 @@ variable "linux-server" {
           server-count            = number
           server-name             = string
           storage-image-reference = string
-          subnet-id               = string
       }
   )
 }
