@@ -19,10 +19,13 @@ variable "linux-jumpbox" {
             private-ip-alloc      = string
             subnet-id             = string
           })
-          os-disk-caching         = string
-          os-disk-create-option   = string
-          os-disk-disk-size-gb    = number
-          os-disk-managed-type    = string
+          os-disk                 = object({
+            caching        = string
+            create-option  = string
+            disk-size-gb   = number
+            managed-type   = string
+            delete-on-done = bool
+          })
           public-key              = string
           randomizer              = string
           rg-name                 = string

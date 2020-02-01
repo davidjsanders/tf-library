@@ -17,10 +17,7 @@ module "jumpbox" {
             public-ip-id       = azurerm_public_ip.jumpbox-pip.id
             subnet-id          = var.linux-jumpbox.network.subnet-id
         }
-        os-disk-caching         = var.linux-jumpbox.os-disk-caching
-        os-disk-create-option   = var.linux-jumpbox.os-disk-create-option
-        os-disk-disk-size-gb    = var.linux-jumpbox.os-disk-disk-size-gb
-        os-disk-managed-type    = var.linux-jumpbox.os-disk-managed-type
+        os-disk                 = var.linux-jumpbox.os-disk
         public-key              = var.linux-jumpbox.public-key
         randomizer              = var.linux-jumpbox.randomizer
         rg-name                 = var.linux-jumpbox.rg-name

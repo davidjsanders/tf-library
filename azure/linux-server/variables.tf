@@ -6,7 +6,6 @@ variable "linux-server" {
           boot-diags              = bool
           boot-diags-sa-uri       = string
           custom-data             = string
-          delete-os-on-done       = bool
           delete-data-on-done     = bool
           disable-password-auth   = bool
           location                = string
@@ -17,10 +16,13 @@ variable "linux-server" {
             public-ip-id          = string
             subnet-id             = string
           })
-          os-disk-caching         = string
-          os-disk-create-option   = string
-          os-disk-disk-size-gb    = number
-          os-disk-managed-type    = string
+          os-disk                 = object({
+            caching        = string
+            create-option  = string
+            disk-size-gb   = number
+            managed-type   = string
+            delete-on-done = bool
+          })
           public-key              = string
           randomizer              = string
           rg-name                 = string

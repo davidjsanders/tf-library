@@ -4,7 +4,7 @@ resource "azurerm_virtual_machine" "vm" {
   resource_group_name              = var.linux-server.rg-name
   vm_size                          = var.linux-server.machine-size
   availability_set_id              = var.linux-server.availability-set-id
-  delete_os_disk_on_termination    = var.linux-server.delete-os-on-done
+  delete_os_disk_on_termination    = var.linux-server.os-disk.delete-on-done
   delete_data_disks_on_termination = var.linux-server.delete-data-on-done
   location                         = var.linux-server.location
 
@@ -37,9 +37,9 @@ resource "azurerm_virtual_machine" "vm" {
         var.linux-server.randomizer
       )
     )
-    caching           = var.linux-server.os-disk-caching
-    create_option     = var.linux-server.os-disk-create-option
-    managed_disk_type = var.linux-server.os-disk-managed-type
+    caching           = var.linux-server.os-disk.caching
+    create_option     = var.linux-server.os-disk.create-option
+    managed_disk_type = var.linux-server.os-disk.managed-type
   }
 
   os_profile {
