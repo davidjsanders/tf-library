@@ -14,7 +14,7 @@ resource "azurerm_network_security_rule" "nsg-rule" {
   protocol                    = "Tcp"
   source_port_range           = "*"
   source_address_prefix       = "Internet"
-  resource_group_name         = var.linux-server.rg-name
-  network_security_group_name = var.linux-server.network.nsg-name
+  resource_group_name         = var.linux-jumpbox.rg-name
+  network_security_group_name = var.linux-jumpbox.network.nsg-name
 }
 
