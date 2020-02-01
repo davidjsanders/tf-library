@@ -6,7 +6,6 @@ variable "linux-jumpbox" {
           boot-diags              = bool
           boot-diags-sa-uri       = string
           custom-data             = string
-          delete-os-on-done       = bool
           delete-data-on-done     = bool
           disable-password-auth   = bool
           location                = string
