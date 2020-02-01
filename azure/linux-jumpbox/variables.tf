@@ -7,6 +7,8 @@ variable "linux-jumpbox" {
         })
         location         = string
         network          = object({
+          nsg-name              = string
+          nsg-rule-priority     = number
           pip-alloc             = string
           pip-domain-name-label = string
           pip-sku               = string
