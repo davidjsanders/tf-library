@@ -11,7 +11,7 @@ resource "azurerm_virtual_machine" "vm" {
   name = upper(
     format(
       "VM-%s-%02d%s",
-      upper(var.linux-server.os.server-name),
+      upper(var.linux-server.server.server-name),
       count.index + 1,
       var.linux-server.randomizer
     ),
@@ -32,7 +32,7 @@ resource "azurerm_virtual_machine" "vm" {
     name              = upper(
       format(
         "DSK-%s-%02d%s",
-        var.linux-server.os.server-name,
+        var.linux-server.server.server-name,
         count.index + 1,
         var.linux-server.randomizer
       )
