@@ -18,8 +18,8 @@ variable "linux-jumpbox" {
           admin-user              = string
           custom-data             = string
           disable-password-auth   = bool
+          hostname                = string
           public-key              = string
-          server-name             = string
           storage-image-reference = string
         })
         os-disk          = object({
@@ -35,6 +35,7 @@ variable "linux-jumpbox" {
           availability-set-id = string
           machine-size        = string
           server-count        = number
+          server-name         = string
         })
       }
   )

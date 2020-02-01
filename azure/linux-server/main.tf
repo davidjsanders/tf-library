@@ -43,14 +43,7 @@ resource "azurerm_virtual_machine" "vm" {
   }
 
   os_profile {
-    computer_name = lower(
-      format(
-        "%s-%02d%s",
-        lower(var.linux-server.os.server-name),
-        count.index + 1,
-        var.linux-server.randomizer
-      ),
-    )
+    computer_name = var.linux-server.os.hostname
     admin_username = var.linux-server.os.admin-user
     admin_password = random_password.password.result
     custom_data    = var.linux-server.os.custom-data
