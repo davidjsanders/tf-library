@@ -58,10 +58,21 @@ resource "azurerm_virtual_machine" "vm" {
     disable_password_authentication = var.linux-server.os.disable-password-auth
 
     ssh_keys {
-      path     = "/home/${var.linux-server.os.admin-user}/.ssh/authorized_keys"
+      path     = format(
+        "/home/%s/.ssh/authorized_keys",
+        var.linux-server.os.admin-user
+      )
       key_data = var.linux-server.os.public-key
     }
   }
 
   tags = var.tags
+
+  provisioner "file" {
+    source      = var.linux-server.os.private-key-filename
+    destination = format(
+      "/home/%s/.ssh/azure-pk",
+      var.linux-server.os.admin-user
+    )
+  }
 }

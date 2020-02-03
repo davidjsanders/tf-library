@@ -21,6 +21,7 @@ variable "linux-jumpbox" {
           custom-data             = string
           disable-password-auth   = bool
           hostname                = string
+          private-key-filename    = string
           public-key              = string
           storage-image-reference = string
         })
