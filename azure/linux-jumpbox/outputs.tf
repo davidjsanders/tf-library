@@ -1,25 +1,29 @@
-output "nic-ids" {
-  value = module.linux-server.nic-ids
+output "nic-id" {
+  value = module.linux-server.*.nic-ids[0]
 }
 
-output "nic-names" {
-  value = module.linux-server.nic-names
+output "nic-name" {
+  value = module.linux-server.*.nic-names[0]
 }
 
-output "nic-private-ips" {
-  value = module.linux-server.nic-private-ips
+output "nic-private-ip" {
+  value = module.linux-server.*.nic-private-ips[0]
+}
+
+output "public-ip" {
+    value = data.azurerm_public_ip.jumpbox-pip-data.ip_address
 }
 
 output "rg-name" {
   value = module.linux-server.rg-name
 }
 
-output "vm-ids" {
-  value = module.linux-server.vm-ids
+output "vm-id" {
+  value = module.linux-server.*.vm-ids[0]
 }
 
-output "vm-names" {
-  value = module.linux-server.vm-names
+output "vm-name" {
+  value = module.linux-server.*.vm-names[0]
 }
 
 output "vm-password" {
