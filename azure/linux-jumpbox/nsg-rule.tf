@@ -17,4 +17,3 @@ resource "azurerm_network_security_rule" "nsg-rule" {
   resource_group_name         = var.linux-jumpbox.rg-name
   network_security_group_name = var.linux-jumpbox.network.nsg-name
 }
-
