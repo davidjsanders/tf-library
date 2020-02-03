@@ -1,9 +1,9 @@
 data "azurerm_public_ip" "jumpbox-pip-data" {
-    resource_group_name = module.linux-server.rg-name
+    resource_group_name = module.jumpbox.rg-name
     name                = azurerm_public_ip.jumpbox-pip.name
 
     depends_on = [
-        module.linux-server,
+        module.jumpbox,
         azurerm_public_ip.jumpbox-pip
     ]
 }
