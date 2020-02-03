@@ -1,13 +1,5 @@
-output "vm-ids" {
-  value = azurerm_virtual_machine.vm.*.id
-}
-
 output "nic-ids" {
   value = azurerm_network_interface.nic.*.id
-}
-
-output "vm-names" {
-  value = azurerm_virtual_machine.vm.*.name
 }
 
 output "nic-names" {
@@ -16,6 +8,18 @@ output "nic-names" {
 
 output "nic-private-ips" {
   value = azurerm_network_interface.nic.*.private_ip_address
+}
+
+output "rg-name" {
+  value = azurerm_virtual_machine.vm.*.resource_group_name[0]
+}
+
+output "vm-ids" {
+  value = azurerm_virtual_machine.vm.*.id
+}
+
+output "vm-names" {
+  value = azurerm_virtual_machine.vm.*.name
 }
 
 output "vm-password" {
@@ -40,10 +44,6 @@ output "vm-password" {
 
 # output "nic-ips" {
 #   value = module.linux-server-nic.ips
-# }
-
-# output "rg-name" {
-#   value = module.linux-server-vm.rg-name
 # }
 
 # output "vm-id" {
