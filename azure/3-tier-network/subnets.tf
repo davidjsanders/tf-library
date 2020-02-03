@@ -13,7 +13,7 @@ resource "azurerm_subnet" "subnet" {
     format(
       "SNT-%s%s",
       var.network.subnet-names[count.index],
-      var.subnet.randomizer
+      var.network.randomizer
     )
   )
   network_security_group_id = var.network.nsg-id
