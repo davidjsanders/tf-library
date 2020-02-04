@@ -34,7 +34,7 @@ resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
     }
   }
 
-  boot_diagnostics = {
+  boot_diagnostics {
     storage_uri = var.scale-set.boot-diagnostics.uri
     enabled     = var.scale-set.boot-diagnostics.enable
   }
