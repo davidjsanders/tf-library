@@ -1,7 +1,7 @@
 resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
   name                = upper(
     format(
-      "VMSS-%s-%02d%s",
+      "VMSS-%s%s",
       upper(var.scale-set.scale-set-name),
       var.scale-set.randomizer
     )
@@ -19,7 +19,7 @@ resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
   network_profile {
     name    = upper(
       format(
-          "PROFILE-%s-%02d%s",
+          "PROFILE-%s%s",
           upper(var.scale-set.scale-set-name),
           var.scale-set.randomizer
       )
@@ -52,13 +52,14 @@ resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
 
   dynamic "storage_profile_data_disk" {
     for_each = var.scale-set.data-disk
+    iterator = data-disk
 
     content {
-      create_option     = storage_profile_data_disk.value["create-option"]
-      caching           = storage_profile_data_disk.value["caching"]
-      disk_size_gb      = storage_profile_data_disk.value["disk-size-gb"]
-      lun               = storage_profile_data_disk.value["lun"]
-      managed_disk_type = storage_profile_data_disk.value["managed-disk-type"]
+      create_option     = data-disk.create-option
+      caching           = data-disk.caching
+      disk_size_gb      = data-disk.disk-size-gb
+      lun               = data-disk.lun
+      managed_disk_type = data-disk.managed-disk-type
     }
   }
 
