@@ -8,7 +8,7 @@ resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
   )
   location            = var.scale-set.location
   resource_group_name = var.scale-set.rg-name
-  upgrade_policy_mode = var.scale-set.upgrade-policy-mode
+  upgrade_policy_mode = var.scale-set.server.upgrade-policy-mode
 
   sku {
     name     = var.scale-set.server.machine-size
@@ -24,9 +24,9 @@ resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
           var.scale-set.randomizer
       )
     )
-    primary = true
 
     ip_configuration {
+      primary                                = true
       name                                   = "IPv4"
       subnet_id                              = var.scale-set.network.subnet-id
       load_balancer_backend_address_pool_ids = var.scale-set.network.lb-backend-address-pool-ids
