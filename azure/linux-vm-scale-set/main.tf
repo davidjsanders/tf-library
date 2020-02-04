@@ -76,6 +76,14 @@ resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
 
   os_profile_linux_config {
     disable_password_authentication = var.scale-set.os.disable-password-auth
+
+    ssh_keys {
+      path     = format(
+        "/home/%s/.ssh/authorized_keys",
+        var.scale-set.os.admin-user
+      )
+      key_data = var.scale-set.os.public-key
+    }
   }
 
   tags = var.tags
