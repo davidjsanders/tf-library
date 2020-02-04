@@ -45,7 +45,6 @@ variable "scale-set" {
         server           = object({
           capacity            = number
           machine-size        = string
-          server-count        = number
           server-name         = string
           tier                = string
           upgrade-policy-mode = string
