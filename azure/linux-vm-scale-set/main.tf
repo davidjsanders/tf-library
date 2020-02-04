@@ -24,6 +24,7 @@ resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
           var.scale-set.randomizer
       )
     )
+    primary = true
 
     ip_configuration {
       primary                                = true
