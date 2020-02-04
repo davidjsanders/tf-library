@@ -67,12 +67,4 @@ resource "azurerm_virtual_machine" "vm" {
   }
 
   tags = var.tags
-
-  provisioner "file" {
-    source      = var.linux-server.os.private-key-filename
-    destination = format(
-      "/home/%s/.ssh/azure-pk",
-      var.linux-server.os.admin-user
-    )
-  }
 }
