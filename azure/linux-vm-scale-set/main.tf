@@ -50,11 +50,8 @@ resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
     managed_disk_type = var.scale-set.os-disk.managed-type
   }
 
-  storage_profile_data_disk {
-
-  }
   dynamic "storage_profile_data_disk" {
-    for_each = "${var.scale-set.data-disk}"
+    for_each = var.scale-set.data-disk
     iterator = "data-disk"
 
     content {
