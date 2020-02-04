@@ -55,11 +55,11 @@ resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
     iterator = data-disk
 
     content {
-      create_option     = data-disk.create-option
+      create_option     = data-disk.create_option
       caching           = data-disk.caching
-      disk_size_gb      = data-disk.disk-size-gb
+      disk_size_gb      = data-disk.disk_size_gb
       lun               = data-disk.lun
-      managed_disk_type = data-disk.managed-disk-type
+      managed_disk_type = data-disk.managed_disk_type
     }
   }
 

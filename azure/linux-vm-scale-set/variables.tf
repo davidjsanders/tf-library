@@ -7,11 +7,11 @@ variable "scale-set" {
         })
         data-disk        = list(
           object({
-            caching        = string
-            create-option  = string
-            disk-size-gb   = number
-            lun            = number
-            managed-type   = string
+            caching           = string
+            create_option     = string
+            disk_size_gb      = number
+            lun               = number
+            managed_disk_type = string
           })
         )
         location         = string
