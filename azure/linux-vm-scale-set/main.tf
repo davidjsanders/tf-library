@@ -68,7 +68,7 @@ resource "azurerm_virtual_machine_scale_set" "linux-vm-scale-set" {
       caching           = data-disk.value.caching
       disk_size_gb      = data-disk.value.disk-size-gb
       lun               = data-disk.value.lun
-      managed_disk_type = data-disk.value.managed-disk-type
+      managed_disk_type = data-disk.value.managed-type
     }
   }
 
