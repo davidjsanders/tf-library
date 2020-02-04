@@ -1,8 +1,8 @@
 resource "null_resource" "provisioner" {
-    depends_on = [azurerm_public_ip.jumpbox-pip-data]
+    depends_on = [data.azurerm_public_ip.jumpbox-pip-data]
 
     connection {
-        host         = azurerm_public_ip.jumpbox-pip-data.ip_address
+        host         = data.azurerm_public_ip.jumpbox-pip-data.ip_address
         type         = "ssh"
         user         = var.linux-jumpbox.os.admin-user
         private_key  = file(var.linux-jumpbox.os.private-key-filename)
