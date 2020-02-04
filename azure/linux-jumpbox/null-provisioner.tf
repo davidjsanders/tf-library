@@ -11,14 +11,14 @@ resource "null_resource" "provisioner" {
     provisioner "file" {
         source      = var.linux-jumpbox.os.private-key-filename
         destination = format(
-            "/home/%s/.ssh/azure-pk",
+            "/home/%s/.ssh/id_rsa",
             var.linux-jumpbox.os.admin-user
         )
     }
 
     provisioner "remote-exec" {
         inline = [
-            "chmod 0600 ~/.ssh/azure-pk",
+            "chmod 0600 ~/.ssh/id_rsa",
             "echo 'Done.'",
         ]
     }
