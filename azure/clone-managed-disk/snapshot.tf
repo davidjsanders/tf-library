@@ -1,7 +1,7 @@
 resource "azurerm_snapshot" "snapshot" {
     create_option       = "Copy"
     disk_size_gb        = data.azurerm_managed_disk.source-disk.disk_size_gb
-    encryption_settings = data.azurerm_managed_disk.source-disk.encryption_settings
+    # encryption_settings = data.azurerm_managed_disk.source-disk.encryption_settings
     location            = var.destination-disk.location
     name                = format(
         "SNAPSHOT-%s%s",
