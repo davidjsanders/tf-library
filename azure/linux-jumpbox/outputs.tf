@@ -1,6 +1,11 @@
 output "fqdn" {
     value = data.azurerm_public_ip.jumpbox-pip-data.fqdn
 }
+
+output "hostnames" {
+  value = module.jumpbox.*.hostnames[0]
+}
+
 output "nic-id" {
     value = module.jumpbox.*.nic-ids[0]
 }

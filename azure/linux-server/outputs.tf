@@ -1,3 +1,7 @@
+output "hostnames" {
+  value = azurerm_virtual_machine.vm.*.os_profile.computer_name
+}
+
 output "nic-ids" {
   value = azurerm_network_interface.nic.*.id
 }
