@@ -2,7 +2,7 @@ output "fqdn" {
     value = data.azurerm_public_ip.jumpbox-pip-data.fqdn
 }
 
-output "hostnames" {
+output "hostname" {
   value = module.jumpbox.*.hostnames[0]
 }
 
