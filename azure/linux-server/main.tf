@@ -8,14 +8,15 @@ resource "azurerm_virtual_machine" "vm" {
   delete_data_disks_on_termination = false
   location                         = var.linux-server.location
 
-  name = upper(
-    format(
-      "VM-%s-%02d%s",
-      upper(var.linux-server.server.server-name),
-      count.index + 1,
-      var.linux-server.randomizer
-    ),
-  )
+  name = local.l-hostnames[count.index]
+  # name = upper(
+  #   format(
+  #     "VM-%s-%02d%s",
+  #     upper(var.linux-server.server.server-name),
+  #     count.index + 1,
+  #     var.linux-server.randomizer
+  #   ),
+  # )
 
   network_interface_ids = [azurerm_network_interface.nic.*.id[count.index]]
 
