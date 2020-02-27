@@ -1,0 +1,43 @@
+resource "null_resource" "disk-deprovisioner" {
+    triggers = {
+        vm-id          = google_compute_instance.vm.id
+        disk-id        = join(",", google_compute_disk.datadisk.*.id)
+        disk-attach-id = join(",", google_compute_attached_disk.datadisk-attach.*.id)
+    }
+
+    connection {
+        host         = google_compute_instance.vm.network_interface.0.access_config.0.nat_ip
+        type         = "ssh"
+        user         = var.server.admin-user
+        private_key  = file(var.server.keyfile)
+    }
+
+    provisioner "file" {
+        when = destroy
+        content = templatefile(
+            "templates/change-disks.sh",
+            {
+                disks = [for d in var.datadisk: {
+                    device = format(
+                        "/dev/sd%s",
+                        substr("bcdefghij", index(var.datadisk, d), 1)
+                    ),
+                    mountpoint = d.mountpoint
+                }]
+            }
+        )
+        destination = "~/bootstrap.sh"
+    }
+
+    provisioner "remote-exec" {
+        when   = destroy
+        inline = [<<EOF
+chmod +x ~/change-disks.sh
+cat ~/change-disks.sh
+#sudo ~/change-disks.sh
+echo "Done.",
+EOF
+        ]
+    }
+
+}
