@@ -1,15 +1,18 @@
 resource "null_resource" "vm-provisioner" {
     triggers = {
         vm-id          = google_compute_instance.vm.id
+        vm-user        = var.server.admin-user
+        vm-keyfile     = file(var.server.keyfile)
         disk-id        = join(",", google_compute_disk.datadisk.*.id)
         disk-attach-id = join(",", google_compute_attached_disk.datadisk-attach.*.id)
+        nic-ip-address = google_compute_instance.vm.network_interface.0.access_config.0.nat_ip
     }
 
     connection {
-        host         = google_compute_instance.vm.network_interface.0.access_config.0.nat_ip
+        host         = self.triggers.nic-ip-address
         type         = "ssh"
-        user         = var.server.admin-user
-        private_key  = file(var.server.keyfile)
+        user         = self.triggers.vm-user
+        private_key  = self.triggers.vm-keyfile
     }
     provisioner "file" {
         content = templatefile(
@@ -36,4 +39,10 @@ EOF
         ]
     }
 
+    provisioner "remote-exec" {
+        when = destroy
+        inline = [
+            "echo 'Destroying :) '"
+        ]
+    }
 }
