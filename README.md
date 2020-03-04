@@ -13,5 +13,8 @@ As of the current release:
 | Module   | Azure | GCP | AWS |
 | -------- | ----- | --- | --- |
 | 3 tier network | yes | no | no |
+| cloned managed disk | yes | no | no |
+| k8s load balancer | yes | no | no |
 | linux jumpbox | yes | no | no |
-| linux server | yes | no | no |
+| linux server | yes | yes | no |
+| linux vm scale set | yes | no | no |
