@@ -1,9 +1,9 @@
 resource "google_compute_firewall" "flask-firewall" {
-    name    = var.firewall-allow.fw-name
-    network = "default"
+    name    = var.firewall-values.firewall-name
+    network = var.firewall-values.network-name
 
     dynamic "allow" {
-        for_each = var.firewall-allow.ports
+        for_each = var.firewall-values.allow-ports
         iterator = port
 
         content {
@@ -13,7 +13,7 @@ resource "google_compute_firewall" "flask-firewall" {
     }
 
     dynamic "deny" {
-        for_each = var.firewall-deny.ports
+        for_each = var.firewall-values.deny-ports
         iterator = port
 
         content {

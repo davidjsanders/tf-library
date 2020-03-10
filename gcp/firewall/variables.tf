@@ -1,26 +1,14 @@
-variable "firewall-allow" {
+variable "firewall-values" {
     type = object({
-        fw-name = string
-        ports   = list(
-            object(
-                {
-                    port     = number
-                    protocol = string
-                }
-            )
-        )
-    })
-}
-variable "firewall-deny" {
-    type = object({
-        fw-name = string
-        ports   = list(
-            object(
-                {
-                    port     = number
-                    protocol = string
-                }
-            )
-        )
+        allow-ports   = list(object({
+            port     = number
+            protocol = string
+        }))
+        deny-ports   = list(object({
+            port     = number
+            protocol = string
+        }))
+        firewall-name = string
+        network-name  = string
     })
 }
