@@ -1,7 +1,6 @@
 module "linux-jumpbox" {
     source = "../linux-server"
 
-    datadisk = var.datadisk
     labels   = var.labels
     randoms  = var.randoms
     server = {
