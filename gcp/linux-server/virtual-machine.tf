@@ -40,9 +40,6 @@ resource "google_compute_instance" "vm" {
                 network_tier = "PREMIUM"
             }
         }
-        # access_config {
-        #     // Include this section to give the VM an external ip address
-        # }
     }
     zone                    = var.server.zone
 }
