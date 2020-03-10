@@ -16,7 +16,7 @@ resource "null_resource" "vm-provisioner" {
     }
     provisioner "file" {
         content = templatefile(
-            "templates/bootstrap.sh",
+            "${path.module}/templates/bootstrap.sh",
             {
                 disks = [for d in var.datadisk: {
                     device = format(
