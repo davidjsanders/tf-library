@@ -1,13 +1,3 @@
-variable "datadisk" {
-    type = list(object({
-        block_size_bytes = number
-        disk-name        = string
-        disk-size-in-gb  = number
-        disk-type        = string
-        mountpoint       = string
-        zone             = string
-    }))
-}
 variable "labels" {
     type = map(string)
 }
