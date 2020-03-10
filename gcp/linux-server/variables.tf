@@ -49,6 +49,10 @@ variable "google-secrets" {
 variable "labels" {
     type = map(string)
 }
+variable "randoms" {
+    instance-id = string
+    host-id     = string
+}
 variable "server" {
     type = object({
         admin-user   = string

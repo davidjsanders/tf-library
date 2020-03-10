@@ -28,7 +28,7 @@ resource "google_compute_instance" "vm" {
     name = format(
         "%s-%s",
         var.server.vm-prefix,
-        random_id.instance-id.hex
+        random_id.var.randoms.instance-id.hex
     )
     network_interface {
         network = "default"
