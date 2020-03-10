@@ -1,4 +1,6 @@
 resource "google_compute_instance" "vm" {
+    count      = var.server.vm-count
+
     depends_on = [
     ]
     lifecycle {
@@ -12,8 +14,9 @@ resource "google_compute_instance" "vm" {
         }
     }
     hostname                = lower(format(
-        "%s",
-        var.server.vm-hostname
+        "%s-%02d",
+        var.server.vm-hostname,
+        count.index
     ))
     labels                  = var.labels
     machine_type            = var.server.machine-type
@@ -26,9 +29,10 @@ resource "google_compute_instance" "vm" {
     }
     metadata_startup_script = var.server.script
     name = format(
-        "%s-%s",
+        "%s-%s-%02d",
         var.server.vm-prefix,
-        var.randoms.instance-id
+        var.randoms.instance-id,
+        count.index
     )
     network_interface {
         network = "default"

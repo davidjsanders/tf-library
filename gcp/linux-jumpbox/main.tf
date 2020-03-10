@@ -11,6 +11,7 @@ module "linux-jumpbox" {
         pub-keyfile  = var.server.pub-keyfile
         public-ip    = true
         script       = var.server.script
+        vm-count     = 1
         vm-hostname  = var.server.vm-hostname
         vm-prefix    = var.server.vm-prefix
         zone         = var.server.zone
