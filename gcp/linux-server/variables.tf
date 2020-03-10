@@ -8,44 +8,6 @@ variable "datadisk" {
         zone             = string
     }))
 }
-variable "firewall-allow" {
-    type = object({
-        fw-name = string
-        ports   = list(
-            object(
-                {
-                    port     = number
-                    protocol = string
-                }
-            )
-        )
-    })
-}
-variable "firewall-deny" {
-    type = object({
-        fw-name = string
-        ports   = list(
-            object(
-                {
-                    port     = number
-                    protocol = string
-                }
-            )
-        )
-    })
-}
-variable "google-project" {
-    type = object({
-        project-id = string
-        region     = string
-    })
-}
-variable "google-secrets" {
-    type = object({
-        credentials-filename = string
-        credentials-path     = string
-    })
-}
 variable "labels" {
     type = map(string)
 }
