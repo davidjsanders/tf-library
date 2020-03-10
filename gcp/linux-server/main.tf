@@ -14,10 +14,10 @@ resource "google_compute_instance" "vm" {
         }
     }
     hostname                = lower(format(
-        "%s%s%02d",
+        "%s%s%s",
         var.server.vm-hostname,
         var.server.vm-hostname != "" ? "-" : "",
-        var.server.vm-hostname != "" ? count.index : ""
+        var.server.vm-hostname != "" ? format("%02d", count.index) : ""
     ))
     labels                  = var.labels
     machine_type            = var.server.machine-type
