@@ -50,8 +50,10 @@ variable "labels" {
     type = map(string)
 }
 variable "randoms" {
-    instance-id = string
-    host-id     = string
+    type = object({
+        instance-id = string
+        host-id     = string
+    })
 }
 variable "server" {
     type = object({
