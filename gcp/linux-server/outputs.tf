@@ -10,6 +10,10 @@ output "private-ip" {
     value = google_compute_instance.vm.*.network_interface.0.network_ip
 }
 
+output "network-interfaces" {
+    value = google_compute_instance.vm.*.network_interface
+}
+
 output "self-link" {
     value = google_compute_instance.vm.*.self_link
 }
