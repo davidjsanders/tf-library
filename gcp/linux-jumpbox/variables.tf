@@ -13,8 +13,10 @@ variable "server" {
         delete-osd   = bool
         keyfile      = string
         machine-type = string
+        network      = string
         pub-keyfile  = string
         script       = string
+        subnetwork   = string
         vm-hostname  = string
         vm-prefix    = string
         zone         = string
