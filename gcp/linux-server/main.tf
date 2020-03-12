@@ -36,7 +36,8 @@ resource "google_compute_instance" "vm" {
         count.index
     )
     network_interface {
-        network = "default"
+        network    = var.server.network
+        subnetwork = var.server.subnetwork
 
         dynamic "access_config" {
             for_each = [for i in range(0, var.server.public-ip == false ? 0 : 1) : ""]
