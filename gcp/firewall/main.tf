@@ -2,6 +2,8 @@ resource "google_compute_firewall" "firewall" {
     name               = var.firewall-values.firewall-name
     network            = var.firewall-values.network-name
 
+    destination_ranges = var.firewall-values.destinations
+
     dynamic "allow" {
         for_each = var.firewall-values.allow-ports
         iterator = port
@@ -11,8 +13,6 @@ resource "google_compute_firewall" "firewall" {
             ports    = [port.value.port]
         }
     }
-
-    # destination_ranges = var.firewall-values.destinations
 
     dynamic "deny" {
         for_each = var.firewall-values.deny-ports
