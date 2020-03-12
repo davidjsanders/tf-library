@@ -1,5 +1,5 @@
 resource "google_compute_firewall" "firewall" {
-    destination_ranges = var.firewall-values.destinations
+    destination_ranges = [var.firewall-values.destinations]
     name               = var.firewall-values.firewall-name
     network            = var.firewall-values.network-name
 
