@@ -12,7 +12,7 @@ resource "google_compute_firewall" "firewall" {
         }
     }
 
-    destination_ranges = var.firewall-values.destinations
+    # destination_ranges = var.firewall-values.destinations
 
     dynamic "deny" {
         for_each = var.firewall-values.deny-ports
