@@ -1,6 +1,7 @@
 resource "google_compute_firewall" "firewall" {
-    name    = var.firewall-values.firewall-name
-    network = var.firewall-values.network-name
+    destination_ranges = var.firewall-values.destinations
+    name               = var.firewall-values.firewall-name
+    network            = var.firewall-values.network-name
 
     dynamic "allow" {
         for_each = var.firewall-values.allow-ports

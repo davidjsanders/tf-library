@@ -8,6 +8,7 @@ variable "firewall-values" {
             port     = number
             protocol = string
         }))
+        destinations  = list(string)
         firewall-name = string
         network-name  = string
     })
