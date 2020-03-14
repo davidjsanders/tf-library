@@ -11,6 +11,7 @@ variable "server" {
     type = object({
         admin-user   = string
         delete-osd   = bool
+        image-id     = string
         keyfile      = string
         machine-type = string
         network      = string

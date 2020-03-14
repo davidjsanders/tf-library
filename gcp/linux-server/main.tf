@@ -10,7 +10,7 @@ resource "google_compute_instance" "vm" {
     boot_disk {
         auto_delete = var.server.delete-osd
         initialize_params {
-            image = "debian-cloud/debian-9"
+            image = var.server.image-id
         }
     }
     hostname                = lower(format(

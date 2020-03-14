@@ -6,6 +6,7 @@ module "linux-jumpbox" {
     server = {
         admin-user   = var.server.admin-user
         delete-osd   = var.server.delete-osd
+        image-id     = var.server.image-id
         keyfile      = var.server.keyfile
         machine-type = var.server.machine-type
         network      = var.server.network
