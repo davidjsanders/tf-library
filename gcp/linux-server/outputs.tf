@@ -1,3 +1,7 @@
+output "osname" {
+    value = google_compute_instance.vm.*.name
+}
+
 output "hostname" {
     value = var.server.public-ip ? google_compute_instance.vm.*.hostname : ["No Public IP"]
 }
