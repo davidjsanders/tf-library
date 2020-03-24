@@ -6,6 +6,10 @@ output "ip" {
     value = module.linux-jumpbox.*.ip[0]
 }
 
+output "osname" {
+    value = module.linux-jumpbox.*.osname[0]
+}
+
 output "private-ip" {
     value = module.linux-jumpbox.*.private-ip[0]
 }
